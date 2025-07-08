@@ -1,78 +1,78 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { motion, useMotionValue } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 import Link from "next/link"
-import { useState } from "react"
 
-const options = [
-  { label: "Sobre mí", href: "#about", angle: 0 },
-  { label: "Proyectos", href: "#projects", angle: 90 },
-  { label: "Habilidades", href: "#skills", angle: 180 },
-  { label: "Contacto", href: "#contact", angle: 270 },
-]
+type NavItem = {
+  label: string;
+  x: number;
+  y: number;
+  href: string;
+};
 
-export function CircularMenu() {
-    const radius = 140
-  const [hoverIdx, setHoverIdx] = useState<number | null>(null)
-  const centerX = useMotionValue(0)
-  const centerY = useMotionValue(0)
+const navItems: NavItem[] = [
+  { label: 'home', x: 0, y: -200, href: '#welcome' },
+  { label: 'about me', x: -240, y: 0, href: '/about' },
+  { label: 'projects', x: 240, y: 0, href: '/projects' },
+  { label: 'contact', x: 0, y: 200, href: '/contact' },
+];
 
-  const handleHover = (x: number, y: number, idx: number) => {
-    centerX.set(x / 3) // solo se acerca, no llega completamente
-    centerY.set(y / 3)
-    setHoverIdx(idx)
-  }
+export default function Menu() {
+  // Motion values para el rombo y círculo chico
+  const iconX = useSpring(useMotionValue(0), { stiffness: 30, damping: 10 });
+  const iconY = useSpring(useMotionValue(0), { stiffness: 30, damping: 10 });
 
-  const resetCenter = () => {
-    centerX.set(0)
-    centerY.set(0)
-    setHoverIdx(null)
-  }
+  const MAX_OFFSET = 40; // máximo movimiento dentro del círculo grande
+
+  const handleHover = (x: number, y: number) => {
+    const distance = Math.sqrt(x * x + y * y);
+    const scale = Math.min(1, MAX_OFFSET / distance);
+    iconX.set(x * scale);
+    iconY.set(y * scale);
+  };
+
+  const resetHover = () => {
+    iconX.set(0);
+    iconY.set(0);
+  };
 
   return (
-    <div className="relative w-[320px] h-[320px] mx-auto">
-      {/* Líneas cruzando (X) */}
-      <svg className="absolute inset-0 w-full h-full z-0" viewBox="0 0 320 320">
-        <line x1="0" y1="0" x2="320" y2="320" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-        <line x1="320" y1="0" x2="0" y2="320" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-      </svg>
+    <div className="relative w-[600px] h-[600px]">
+      {/* Círculo grande (fijo) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
+        {/* Elementos móviles dentro del círculo */}
+        <motion.div
+          style={{ x: iconX, y: iconY }}
+          className="relative w-24 h-24"
+        >
+          {/* Rombo */}
+          <div className="absolute inset-0 border-2 border-card-foreground rotate-45" />
+          {/* Círculo pequeño alineado con rombo */}
+          <div className="absolute inset-4 border-2 border-card-foreground rounded-full rotate-[-45deg]" />
+        </motion.div>
+      </div>
 
-      {/* Botones en círculo */}
-      {options.map(({ label, href, angle }, idx) => {
-        const rad = (angle * Math.PI) / 180
-        const x = radius * Math.cos(rad)
-        const y = radius * Math.sin(rad)
-
-        return (
-          <Link key={idx} href={href}>
-            <Button
-              variant="outline"
-              className="absolute rounded-full w-20 h-20 text-xs bg-background/60 backdrop-blur-md border border-foreground/30 hover:scale-110 transition-transform z-10"
-              style={{
-                left: `calc(50% + ${x}px - 40px)`,
-                top: `calc(50% + ${y}px - 40px)`,
-              }}
-              onMouseEnter={() => handleHover(x, y, idx)}
-              onMouseLeave={resetCenter}
-            >
-              {label}
-            </Button>
-          </Link>
-        )
-      })}
-
-      {/* Círculo animado central */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 z-20 w-16 h-16 bg-primary/60 rounded-full mix-blend-screen pointer-events-none"
-        style={{
-          x: centerX,
-          y: centerY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-        transition={{ type: 'spring', stiffness: 10, damping: 200, mass: 0.5 }}
-      />
+      {/* Nav Items */}
+      {navItems.map((item, i) => (
+        <motion.div
+          key={item.label}
+          initial={{ opacity: 0, x: 0, y: 0 }}
+          animate={{ opacity: 1, x: item.x, y: item.y }}
+          transition={{ delay: 0.3 + i * 0.2 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          onMouseEnter={() => handleHover(item.x, item.y)}
+          onMouseLeave={resetHover}
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="px-4 py-2 rounded-md font-mono text-foreground text-2xl transition-colors duration-200 hover:bg-foreground/10 cursor-pointer"
+          >
+            <Link href={item.href}>
+              {item.label}
+            </Link>
+          </motion.div>
+        </motion.div>
+      ))}
     </div>
-  )
+  );
 }
