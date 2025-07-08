@@ -34,11 +34,8 @@ export default function Home() {
           <RotatingText />
         </motion.span>
         </motion.h1>
-
-        
-        
         {/* Botón para bajar */}
-        <a href="#menu" className="mt-12 text-sm text-foreground transition-colors duration-200 hover:bg-foreground/10 cursor-pointer rounded-md px-4 py-2">
+        <a href="#menu" className="mt-12 text-m text-foreground transition-colors duration-200 hover:bg-foreground/10 cursor-pointer rounded-md px-4 py-2">
           ↓ Scroll to menu
         </a>
       </section>

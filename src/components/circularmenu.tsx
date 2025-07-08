@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useSpring } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import Link from "next/link"
 
 type NavItem = {
@@ -18,9 +18,15 @@ const navItems: NavItem[] = [
 ];
 
 export default function Menu() {
-  // Motion values para el rombo y círculo chico
-  const iconX = useSpring(useMotionValue(0), { stiffness: 30, damping: 10 });
-  const iconY = useSpring(useMotionValue(0), { stiffness: 30, damping: 10 });
+  // Motion values para el movimiento del rombo y círculo pequeño
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+  // Motion values para el rombo
+  const iconX = useSpring(rawX, { stiffness: 30, damping: 10 });
+  const iconY = useSpring(rawY, { stiffness: 30, damping: 10 });
+  // Transformaciones para el círculo pequeño
+  const smallCircleX = useTransform(iconX, value => value * 0.5);
+  const smallCircleY = useTransform(iconY, value => value * 0.5);
 
   const MAX_OFFSET = 40; // máximo movimiento dentro del círculo grande
 
@@ -39,16 +45,20 @@ export default function Menu() {
   return (
     <div className="relative w-[600px] h-[600px]">
       {/* Círculo grande (fijo) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
         {/* Elementos móviles dentro del círculo */}
         <motion.div
           style={{ x: iconX, y: iconY }}
           className="relative w-24 h-24"
         >
-          {/* Rombo */}
-          <div className="absolute inset-0 border-2 border-card-foreground rotate-45" />
-          {/* Círculo pequeño alineado con rombo */}
-          <div className="absolute inset-4 border-2 border-card-foreground rounded-full rotate-[-45deg]" />
+          {/* Rombo que se mueve */}
+          <div className="absolute inset-0 border-3 border-card-foreground rotate-45" />
+          
+          {/* Círculo pequeño que se mueve dentro de rombo */}
+          <motion.div
+            style={{ x: smallCircleX, y: smallCircleY }}
+            className="absolute inset-4 border-3 border-card-foreground rounded-full "
+          />
         </motion.div>
       </div>
 
