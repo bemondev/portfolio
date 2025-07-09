@@ -22,7 +22,7 @@ export default function AboutSection({ onBack }: Props) {
         <h2 className="text-4xl font-bold mb-4">About me</h2>
         <p className="text-lg text-foreground">
         Hi! :) my name is Bernardo Montaña. I&rsquo;m an IT 
-        student based in Uruguay, currently pursuing a Bachelor's Degree
+        student based in Uruguay, currently pursuing a Bachelor&rsquo;s Degree
         in IT at UTEC. I&rsquo;ve dabbled in development, testing,
         databases, design and cloud. I have formal
         experience as a QA Tester. I love cats, videogames, design and technology.
