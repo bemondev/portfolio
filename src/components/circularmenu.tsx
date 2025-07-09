@@ -75,18 +75,18 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
     >
       <div className="relative w-[600px] h-[600px]">
         {/* Círculo grande (fijo) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
           {/* Elementos móviles dentro del círculo */}
           <motion.div
             style={{ x: iconX, y: iconY }}
             className="relative w-24 h-24"
           >
             {/* Rombo */}
-            <div className="absolute inset-0 border-2 border-card-foreground rotate-45" />
+            <div className="absolute inset-0 border-3 border-card-foreground rotate-45" />
             {/* Círculo pequeño */}
             <motion.div
               style={{ x: smallCircleX, y: smallCircleY }}
-              className="absolute inset-4 border-2 border-card-foreground rounded-full"
+              className="absolute inset-4 border-3 border-card-foreground rounded-full"
             />
           </motion.div>
         </div>

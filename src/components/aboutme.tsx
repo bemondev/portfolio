@@ -6,10 +6,10 @@ type Props = {
 export default function AboutSection({ onBack }: Props) {
   return (
     <motion.section
-      initial={{ x: '-100%', opacity: 0 }}         // entra desde la izquierda
-      animate={{ x: 0, opacity: 1 }}               // se posiciona al centro
-      exit={{ x: '-100%', opacity: 0 }}            // sale hacia la izquierda
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      initial={{ x: -1000, opacity: 0 }}   // entra desde abajo
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -1000, opacity: 0 }}       // sale hacia abajo
+      transition={{ duration: 0.6, ease: 'anticipate' }}
       className="min-h-screen flex flex-col justify-center items-center text-center px-4"
     >
       <motion.div
@@ -27,8 +27,8 @@ export default function AboutSection({ onBack }: Props) {
         databases, design and cloud. I have formal
         experience as a QA Tester. I love cats, videogames, design and technology.
         </p>
-        <button onClick={onBack} className="mt-8 px-4 py-2 text-lg bg-foreground text-background rounded-md">
-        Back </button>
+        <button onClick={onBack} className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition">
+        Go to Menu → </button>
       </motion.div>
     </motion.section>
   );

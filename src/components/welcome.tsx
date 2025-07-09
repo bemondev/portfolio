@@ -8,9 +8,9 @@ type Props = {
 export default function Welcome({ onContinue }: Props) {
   return (
     <motion.section
-      initial={{ y: -1000, opacity: 0 }}   // entra desde arriba sin % (más seguro)
+      initial={{ y: -1000, opacity: 0 }}   // entra desde arriba 
       animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -1000, opacity: 0 }}       // sale hacia abajo sin rebote
+      exit={{ y: -1000, opacity: 0 }}       // sale hacia arriba
       transition={{ duration: 0.6, ease: 'anticipate' }}
       className="min-h-screen flex flex-col justify-center items-center text-center px-4"
     >
@@ -42,9 +42,9 @@ export default function Welcome({ onContinue }: Props) {
 
       <button
         onClick={onContinue}
-        className="mt-8 px-4 py-2 text-lg bg-foreground text-background rounded-md"
+        className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
       >
-        Enter
+        Go to Menu ↓
       </button>
     </motion.section>
   );

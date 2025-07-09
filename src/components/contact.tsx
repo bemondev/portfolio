@@ -9,10 +9,10 @@ type Props = {
 export default function Contact({ onBack }: Props) {
   return (
     <motion.section
-      initial={{ y: '100%', opacity: 0 }}
+      initial={{ y: 1000, opacity: 0 }}   // entra desde abajo
       animate={{ y: 0, opacity: 1 }}
-      exit={{ y: '100%', opacity: 0 }}
-      transition={{ duration: 0.6}}
+      exit={{ y: 1000, opacity: 0 }}       // sale hacia abajo
+      transition={{ duration: 0.6, ease: 'anticipate' }}
       className="min-h-screen flex flex-col justify-center items-center text-center px-4"
     >
       <h1 className="text-5xl font-mono mb-6">Contact</h1>
@@ -23,7 +23,7 @@ export default function Contact({ onBack }: Props) {
         onClick={onBack}
         className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
       >
-        Back to Menu
+        Go to Menu ↑
       </button>
     </motion.section>
   );
