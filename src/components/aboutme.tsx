@@ -19,17 +19,21 @@ export default function AboutSection({ onBack }: Props) {
         viewport={{ once: true }}
         className="max-w-3xl text-center"
       >
-        <h2 className="text-4xl font-bold mb-4">about me</h2>
+        <h2 className="text-4xl font-bold mb-4">About me</h2>
         <p className="text-lg text-foreground">
-        Hi! :) my name is Bernardo Montaña. I’m an IT 
+        Hi! :) my name is Bernardo Montaña. I&rsquo;m an IT 
         student based in Uruguay, currently pursuing a Bachelor's Degree
-        in IT at UTEC. I’ve dabbled in development, testing,
+        in IT at UTEC. I&rsquo;ve dabbled in development, testing,
         databases, design and cloud. I have formal
         experience as a QA Tester. I love cats, videogames, design and technology.
         </p>
-        <button onClick={onBack} className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition">
-        Go to Menu → </button>
       </motion.div>
+      <button
+        onClick={onBack}
+        className="absolute bottom-30 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
+      >
+        Go to Menu →
+      </button>
     </motion.section>
   );
 }

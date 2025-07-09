@@ -29,7 +29,7 @@ export default function Welcome({ onContinue }: Props) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        I'm
+        I&rsquo;m
         <motion.span
           className="text-5xl md:text-7xl font-mono text-chart-1 font-bold"
           initial={{ opacity: 0 }}
@@ -39,10 +39,9 @@ export default function Welcome({ onContinue }: Props) {
           <RotatingText />
         </motion.span>
       </motion.h1>
-
       <button
         onClick={onContinue}
-        className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
+        className="absolute bottom-30 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
       >
         Go to Menu ↓
       </button>

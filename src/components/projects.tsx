@@ -21,7 +21,7 @@ export default function Projects({ onBack }: Props) {
       </p>
       <button
         onClick={onBack}
-        className="mt-4 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
+        className="absolute bottom-30 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"
       >
         Go to Menu ←
       </button>

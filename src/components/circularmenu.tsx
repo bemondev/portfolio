@@ -1,7 +1,6 @@
 'use client'
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { useEffect } from "react"
 
 type MenuProps = {
   currentSection: string
