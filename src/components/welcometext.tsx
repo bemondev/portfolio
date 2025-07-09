@@ -21,8 +21,18 @@ export default function RotatingText() {
   }, [])
 
   return (
-    <span className="transition-opacity duration-500">
-      {phrases[index]}
-    </span>
+    <div className="relative h-[1em] min-w-[450px] inline-block align-bottom">
+      {phrases.map((phrase, i) => (
+        <span
+          key={i}
+          className={`
+            absolute left-0 top-0 transition-opacity duration-500 
+            ${i === index ? "opacity-100" : "opacity-0"}
+          `}
+        >
+          {phrase}
+        </span>
+      ))}
+    </div>
   )
 }

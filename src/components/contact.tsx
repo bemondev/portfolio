@@ -15,7 +15,7 @@ export default function Contact({ onBack }: Props) {
       transition={{ duration: 0.6, ease: 'anticipate' }}
       className="min-h-screen flex flex-col justify-center items-center text-center px-4"
     >
-      <h1 className="text-5xl font-mono mb-6">Contact</h1>
+      <h2 className="text-4xl font-bold mb-4">Contact</h2>
       <p className="text-lg max-w-xl mb-8">
         Let people know how to reach you: via email, social media, or a contact form.
       </p>
