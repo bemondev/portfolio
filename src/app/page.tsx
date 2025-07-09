@@ -1,52 +1,94 @@
 'use client'
 
-import Menu from "@/components/circularmenu";
-import RotatingText from "@/components/welcometext";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import Welcome from "@/components/welcome"
+import Menu from "@/components/circularmenu"
+import AboutSection from "@/components/aboutme"
+import Projects from "@/components/projects"
+import Contact from "@/components/contact"
 
-export default function Home() {
+export default function HomePage() {
+  const [section, setSection] = useState("welcome")
+  const [direction, setDirection] = useState("down")
+  const [prevSection, setPrevSection] = useState<string | null>(null)
+
+  const getDirectionTo = (from: string, to: string): string => {
+    const directions: Record<string, Record<string, string>> = {
+      menu: {
+        about: "left",
+        projects: "right",
+        contact: "down",
+        welcome: "up",
+      },
+      about: { menu: "right" },
+      projects: { menu: "left" },
+      contact: { menu: "up" },
+      welcome: { menu: "down" },
+    }
+
+    return directions[from]?.[to] || "down"
+  }
+
+  const handleNav = (target: string) => {
+    setDirection(getDirectionTo(section, target))
+    setPrevSection(section)
+    setSection(target)
+  }
+
+  const variants = {
+    enter: (dir: string) => {
+      if (dir === "left") return { x: 1000, opacity: 0 }
+      if (dir === "right") return { x: -1000, opacity: 0 }
+      if (dir === "up") return { y: 1000, opacity: 0 }
+      return { y: -1000, opacity: 0 } // down
+    },
+    center: { x: 0, y: 0, opacity: 1 },
+    exit: (dir: string) => {
+      if (dir === "left") return { x: 1000, opacity: 0 }
+      if (dir === "right") return { x: -1000, opacity: 0 }
+      if (dir === "up") return { y: 1000, opacity: 0 }
+      return { y: -1000, opacity: 0 }
+    },
+  }
+
+  const renderSection = () => {
+    switch (section) {
+      case "welcome":
+        return <Welcome onContinue={() => handleNav("menu")} />
+      case "menu":
+        return (
+          <Menu
+            currentSection={section}
+            prevSection={prevSection}
+            onSelect={handleNav}
+          />
+        )
+      case "about":
+        return <AboutSection onBack={() => handleNav("menu")} />
+      case "projects":
+        return <Projects onBack={() => handleNav("menu")} />
+      case "contact":
+        return <Contact onBack={() => handleNav("menu")} />
+    }
+  }
+
   return (
-    <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-      
-      {/* Sección 1: Bienvenida */}
-      <section className="h-screen flex flex-col items-center justify-center snap-start" id="welcome">
-        <motion.h1
-          className="text-5xl md:text-7xl font-mono text-foreground font-bold pb-2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        > Hi! =]
-        </motion.h1>
-        <motion.h1
-          className="text-5xl md:text-7xl font-mono text-foreground font-bold"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+    <div className="relative w-screen h-screen overflow-hidden">
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={section}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.6 }}
+          className="absolute w-full h-full"
         >
-          I'm
-          {/* Texto que cambia (puede usar Typewriter o frases rotativas) */}
-          <motion.span
-          className="text-5xl md:text-7xl font-mono text-chart-1 font-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <RotatingText />
-        </motion.span>
-        </motion.h1>
-        {/* Botón para bajar */}
-        <a href="#menu" className="mt-12 text-m text-foreground transition-colors duration-200 hover:bg-foreground/10 cursor-pointer rounded-md px-4 py-2">
-          ↓ Scroll to menu
-        </a>
-      </section>
-
-      {/* Sección 2: Menú */}
-      <section
-        id="menu"
-        className="h-screen flex items-center justify-center snap-start"
-      >
-        <Menu />
-      </section>
-    </main>
+          {renderSection()}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   )
 }
