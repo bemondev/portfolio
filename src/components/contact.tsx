@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion"
+import ContactForm from "./contactform";
 
 type Props = {
   onBack: () => void;
@@ -16,9 +17,7 @@ export default function Contact({ onBack }: Props) {
       className="min-h-screen flex flex-col justify-center items-center text-center px-4"
     >
       <h2 className="text-4xl font-bold mb-4">Contact</h2>
-      <p className="text-lg max-w-xl mb-8">
-        Let people know how to reach you: via email, social media, or a contact form.
-      </p>
+      <ContactForm></ContactForm>
       <button
         onClick={onBack}
         className="absolute bottom-30 px-6 py-2 text-lg font-mono border border-foreground rounded hover:bg-foreground hover:text-background transition"

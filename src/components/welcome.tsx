@@ -12,7 +12,7 @@ export default function Welcome({ onContinue }: Props) {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -1000, opacity: 0 }}       // sale hacia arriba
       transition={{ duration: 0.6, ease: 'anticipate' }}
-      className="min-h-screen flex flex-col justify-center items-center text-left px-4"
+      className="min-h-screen min-w-screen flex flex-col justify-center align-middle items-center text-left px-10"
     >
       <div className="flex flex-col gap-1">
         <motion.h1

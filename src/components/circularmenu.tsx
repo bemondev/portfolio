@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { useEffect, useState } from "react"
 
 type MenuProps = {
   currentSection: string
@@ -15,14 +16,20 @@ type NavItem = {
   target: string;
 };
 
-const navItems: NavItem[] = [
+const desktopItems: NavItem[] = [
   { label: 'home', x: 0, y: -200, target: 'welcome' },
-  { label: 'about me', x: -240, y: 0, target: 'about' },
+  { label: 'about', x: -240, y: 0, target: 'about' },
   { label: 'projects', x: 240, y: 0, target: 'projects' },
   { label: 'contact', x: 0, y: 200, target: 'contact' },
-];
+]
 
-// Entrada desde prevSection
+const mobileItems: NavItem[] = [
+  { label: 'home', x: 0, y: -120, target: 'welcome' },
+  { label: 'about', x: -140, y: 0, target: 'about' },
+  { label: 'projects', x: 140, y: 0, target: 'projects' },
+  { label: 'contact', x: 0, y: 120, target: 'contact' },
+]
+
 const getEntryPosition = (from: string | null) => {
   switch (from) {
     case 'welcome': return { y: 1000, opacity: 0 };
@@ -31,9 +38,8 @@ const getEntryPosition = (from: string | null) => {
     case 'contact': return { y: -1000, opacity: 0 };
     default: return { opacity: 0 };
   }
-};
+}
 
-// Salida hacia currentSection
 const getExitPosition = (to: string) => {
   switch (to) {
     case 'welcome': return { y: -1000, opacity: 0 };
@@ -42,7 +48,7 @@ const getExitPosition = (to: string) => {
     case 'contact': return { y: 1000, opacity: 0 };
     default: return { opacity: 0 };
   }
-};
+}
 
 export default function Menu({ currentSection, prevSection, onSelect }: MenuProps) {
   const rawX = useMotionValue(0);
@@ -52,14 +58,28 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
   const smallCircleX = useTransform(iconX, value => value * 0.5);
   const smallCircleY = useTransform(iconY, value => value * 0.5);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const navItems = isMobile ? mobileItems : desktopItems;
   const MAX_OFFSET = 40;
+
   const handleHover = (x: number, y: number) => {
+    if (isMobile) return;
     const distance = Math.sqrt(x * x + y * y);
     const scale = Math.min(1, MAX_OFFSET / distance);
     rawX.set(x * scale);
     rawY.set(y * scale);
   };
+
   const resetHover = () => {
+    if (isMobile) return;
     rawX.set(0);
     rawY.set(0);
   };
@@ -72,13 +92,13 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className="min-h-screen flex flex-col items-center justify-center"
     >
-      <div className="relative w-[600px] h-[600px]">
-        {/* Círculo grande (fijo) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full w-55 h-55 flex items-center justify-center">
-          {/* Elementos móviles dentro del círculo */}
+      <div className={`relative ${isMobile ? 'w-[300px] h-[300px]' : 'w-[600px] h-[600px]'}`}>
+        {/* Círculo grande */}
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full ${isMobile ? 'w-40 h-40' : 'w-55 h-55'} flex items-center justify-center`}>
+          {/* Centro animado */}
           <motion.div
             style={{ x: iconX, y: iconY }}
-            className="relative w-24 h-24"
+            className={isMobile ? 'w-16 h-16 relative' : 'w-24 h-24 relative'}
           >
             {/* Rombo */}
             <div className="absolute inset-0 border-3 border-card-foreground rotate-45" />
@@ -103,7 +123,8 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="px-4 py-2 rounded-md font-mono text-foreground text-2xl transition-colors duration-200 hover:bg-foreground/10 cursor-pointer"
+              whileTap={{ scale: 0.95 }}
+              className={`px-4 py-2 rounded-md font-mono text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
               onClick={() => onSelect(item.target)}
             >
               {item.label}
