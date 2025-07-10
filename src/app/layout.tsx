@@ -18,8 +18,8 @@ export default function RootLayout({
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <FaviconSwitcher />
         <body>
+          <FaviconSwitcher />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
