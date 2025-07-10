@@ -17,7 +17,7 @@ export default function Projects({ onBack }: Props) {
     >
       <h2 className="text-4xl font-bold mb-4">Projects</h2>
       <p className="text-lg max-w-xl mb-8">
-        Here you can showcase your best personal and professional projects. You could include images, descriptions, and tech used.
+        Here you can showcase your best personal and professional projects. You could include images, descriptions, and tech used. (WIP)
       </p>
       <button
         onClick={onBack}

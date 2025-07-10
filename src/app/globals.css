@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -80,7 +79,7 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: oklch(29.531% 0.01203 78.082);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
   --card-foreground: oklch(0.984 0.003 247.858);
@@ -92,13 +91,13 @@
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
+  --accent: oklch(70.576% 0.00008 271.152);
   --accent-foreground: oklch(0.984 0.003 247.858);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-1: oklch(85.482% 0.21307 125.6);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
@@ -111,6 +110,16 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+.bg-radial-pattern {
+  background:
+    radial-gradient(circle, transparent 25%, #f7eadf 26%),
+    linear-gradient(45deg, transparent 46%, #b0a092 47%, #b0a092 52%, transparent 53%),
+    linear-gradient(135deg, transparent 46%, #b0a092 47%, #b0a092 52%, transparent 53%);
+  background-size: 5em 5em;
+  background-color: #f7eadf;
+  opacity: 1;
 }
 
 @layer base {

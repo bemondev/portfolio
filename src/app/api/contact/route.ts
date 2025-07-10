@@ -1,4 +1,3 @@
-// src/app/api/contact/route.ts
 import { NextResponse } from "next/server"
 
 function encodeForm(data: Record<string, string>) {
@@ -10,14 +9,14 @@ function encodeForm(data: Record<string, string>) {
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnnvealj"
     const encodedBody = encodeForm({
       name: body.name,
       email: body.email,
       message: body.message,
     })
 
-    const response = await fetch(process.env.FORMSPREE_ENDPOINT!, {
+    const response = await fetch(FORMSPREE_ENDPOINT!, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -4,10 +4,11 @@ import { useState } from "react"
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
+    setLoading(true)
     const form = e.currentTarget
     const formData = new FormData(form)
 
@@ -64,13 +65,15 @@ export default function ContactForm() {
       />
       <button
         type="submit"
-        className="px-6 py-2 bg-foreground text-background font-bold rounded hover:bg-foreground/90 transition"
+        disabled={submitted || loading}
+        className={`px-6 py-2 font-bold rounded transition 
+          ${submitted
+            ? "bg-green-600 text-white cursor-default"
+            : "bg-foreground text-background hover:bg-foreground/90"}
+        `}
       >
-        Send
+        {submitted ? "Sent ✔" : loading ? "..." : "Send"}
       </button>
-      {submitted && (
-        <p className="mt-4 text-green-500">Thanks for contacting me!</p>
-      )}
     </form>
   )
 }
