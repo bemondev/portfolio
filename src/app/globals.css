@@ -112,6 +112,23 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(200, 200, 200, 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(195, 0, 0);
+  border-radius: 4px;
+}
+
 .bg-radial-pattern {
   background:
     radial-gradient(circle, transparent 25%, #f7eadf 26%),
@@ -130,3 +147,4 @@
     @apply bg-background text-foreground;
   }
 }
+
