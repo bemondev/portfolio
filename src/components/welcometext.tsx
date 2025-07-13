@@ -4,10 +4,12 @@ import { useEffect, useState } from "react"
 
 const phrases = [
   " Bernardo.",
-  " a designer.",
   " a developer.",
+  " a designer.",
+  " a creator.",
   " a student.",
   " a tester.",
+  " @bemondev.",
 ]
 
 export default function RotatingText() {
@@ -21,7 +23,7 @@ export default function RotatingText() {
   }, [])
 
   return (
-    <div className="relative h-[1em] min-w-[450px] inline-block align-bottom">
+    <div className="relative h-[1em] min-w-[450px] inline-block align-bottom text-chart-1">
       {phrases.map((phrase, i) => (
         <span
           key={i}

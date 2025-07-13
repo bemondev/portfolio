@@ -31,14 +31,7 @@ export default function Welcome({ onContinue }: Props) {
           transition={{ duration: 1 }}
         >
           I&rsquo;m{' '}
-          <motion.span
-            className="text-chart-1 align-baseline font-bold inline-block min-w-[150px] sm:min-w-[240px] md:min-w-[300px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
             <RotatingText />
-          </motion.span>
         </motion.h1>
       </div>
       <button
