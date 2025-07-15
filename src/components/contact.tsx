@@ -1,5 +1,3 @@
-'use client'
-
 import { motion } from "framer-motion"
 import LinkedInBadge from "./linkedinbadge"
 import GitHubBadge from "./githubbadge"
@@ -25,7 +23,7 @@ export default function Contact({ onBack }: Props) {
         <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center text-left">
           {/* Mensaje */}
           <motion.div className="px-6 self-center">
-            <p className="text-lg sm:text-xl text-balance">
+            <p className="text-lg sm:text-xl text-left">
               If you want to get in touch, feel free to reach out via email or through my social media profiles.
             </p>
           </motion.div>

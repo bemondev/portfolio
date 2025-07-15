@@ -16,7 +16,7 @@ export default function Welcome({ onContinue }: Props) {
     >
       <div className="flex flex-col gap-2 max-w-full">
         <motion.h1
-          className="text-4xl md:text-7xl font-mono text-foreground font-bold text-left"
+          className="text-5xl md:text-7xl font-mono text-foreground font-bold text-left"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -25,7 +25,7 @@ export default function Welcome({ onContinue }: Props) {
         </motion.h1>
 
         <motion.h1
-          className="text-4xl md:text-7xl font-mono text-foreground font-bold text-left align-middle"
+          className="text-5xl md:text-7xl font-mono text-foreground font-bold text-left"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

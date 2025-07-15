@@ -23,12 +23,12 @@ export default function RotatingText() {
   }, [])
 
   return (
-    <div className="relative h-[1em] min-w-[450px] inline-block align-bottom text-chart-1">
+    <div className="relative h-[1em] min-w-[500px] inline-block align-bottom text-chart-1 font-mono">
       {phrases.map((phrase, i) => (
         <span
           key={i}
           className={`
-            absolute left-0 top-0 transition-opacity duration-500 
+            absolute left-0 top-0 transition-opacity duration-500
             ${i === index ? "opacity-100" : "opacity-0"}
           `}
         >

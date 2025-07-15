@@ -53,7 +53,7 @@ export default function AboutSection({ onBack }: Props) {
         className="w-50 h-50 rounded-full object-cover border-foreground border-2"
       />
 
-      {/* Contenedor del texto + botón */}
+      {/* Contenedor del texto */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function AboutSection({ onBack }: Props) {
 
         <div
           ref={scrollRef}
-          className="max-h-[150px] overflow-y-scroll pr-2 custom-scrollbar"
+          className="max-h-[150px] overflow-y-scroll scroll-smooth scrollbar-thin scrollbar-thumb-chart-1 scrollbar-track-background transition-opacity duration-300 pr-2"
         >
           <p className="text-lg max-w-xl mb-8 leading-relaxed sm:leading-loose text-balance text-left md:text-left">
             Hello! :) My name is Bernardo Montaña. I&rsquo;m an IT student based in Uruguay, currently pursuing a
@@ -79,16 +79,14 @@ export default function AboutSection({ onBack }: Props) {
           </p>
         </div>
 
-        <button
+      </motion.div>
+      <button
           onClick={handleScrollClick}
-          className="absolute top-1/2 right-2 md:right-[-2.5rem] -translate-y-1/2 bg-background border border-foreground rounded-full p-2 shadow-md hover:bg-foreground hover:text-background transition"
+          className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition md:mt-14 mt-1"
           aria-label={scrolledDown ? "Scroll to top" : "Scroll to bottom"}
         >
           {scrolledDown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </button>
-
-      </motion.div>
-
       {/* Botón de regreso */}
       <button
         onClick={onBack}

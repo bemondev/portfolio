@@ -1,5 +1,3 @@
-'use client'
-
 import { motion } from "framer-motion"
 
 type Props = {
@@ -17,7 +15,7 @@ export default function Projects({ onBack }: Props) {
     >
       <h2 className="text-4xl font-normal mb-4">Projects</h2>
       <p className="text-lg max-w-xl mb-8">
-        Here you can showcase your best personal and professional projects. You could include images, descriptions, and tech used. (WIP)
+        This place will have a carrousell with cards to show off some of the projects i've been part of and their stack or repository (WIP)
       </p>
       <button
         onClick={onBack}

@@ -25,8 +25,8 @@ const desktopItems: NavItem[] = [
 
 const mobileItems: NavItem[] = [
   { label: 'home', x: 0, y: -120, target: 'welcome' },
-  { label: 'about', x: -140, y: 0, target: 'about' },
-  { label: 'projects', x: 140, y: 0, target: 'projects' },
+  { label: 'about', x: -150, y: 0, target: 'about' },
+  { label: 'projects', x: 150, y: 0, target: 'projects' },
   { label: 'contact', x: 0, y: 120, target: 'contact' },
 ]
 
@@ -124,7 +124,7 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-md font-mono text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
+              className={`px-4 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
               onClick={() => onSelect(item.target)}
             >
               {item.label}
