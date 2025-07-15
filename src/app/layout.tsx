@@ -4,6 +4,7 @@ import Header from "@/components/ui/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import FaviconSwitcher from "@/components/favicon-switch";
 import { Lexend_Deca } from 'next/font/google'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
             <Header />
             {children}
           </ThemeProvider>
+          <SpeedInsights />
         </body>
       </html>
     </>
