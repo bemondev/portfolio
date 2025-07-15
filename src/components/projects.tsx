@@ -15,7 +15,7 @@ export default function Projects({ onBack }: Props) {
     >
       <h2 className="text-4xl font-normal mb-4">Projects</h2>
       <p className="text-lg max-w-xl mb-8">
-        This place will have a carrousell with cards to show off some of the projects i've been part of and their stack or repository (WIP)
+        This place will have a carousel with cards to show off some of the projects I&rsquo;ve been part of and their stack or repository (WIP)
       </p>
       <button
         onClick={onBack}
