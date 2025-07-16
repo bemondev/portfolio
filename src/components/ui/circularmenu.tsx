@@ -94,16 +94,22 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
     >
       <div className={`relative ${isMobile ? 'w-[300px] h-[300px]' : 'w-[600px] h-[600px]'}`}>
         {/* Círculo grande */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full ${isMobile ? 'w-40 h-40' : 'w-55 h-55'} flex items-center justify-center`}>
+        <div
+          aria-hidden="true"
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full ${isMobile ? 'w-40 h-40' : 'w-55 h-55'} flex items-center justify-center`}>
           {/* Centro animado */}
           <motion.div
             style={{ x: iconX, y: iconY }}
+            aria-hidden="true"
             className={isMobile ? 'w-16 h-16 relative' : 'w-24 h-24 relative'}
           >
             {/* Rombo */}
-            <div className="absolute inset-0 border-3 border-card-foreground rotate-45" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 border-3 border-card-foreground rotate-45" />
             {/* Círculo pequeño */}
             <motion.div
+              aria-hidden="true"
               style={{ x: smallCircleX, y: smallCircleY }}
               className="absolute inset-4 border-3 border-card-foreground rounded-full"
             />
@@ -121,14 +127,14 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
             onMouseEnter={() => handleHover(item.x, item.y)}
             onMouseLeave={resetHover}
           >
-            <motion.div
+            <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className={`px-4 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
               onClick={() => onSelect(item.target)}
             >
               {item.label}
-            </motion.div>
+            </motion.button>
           </motion.div>
         ))}
       </div>

@@ -122,3 +122,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1deg); } 
+  50% { transform: rotate(1deg); }  
+  75% { transform: rotate(-1deg); } 
+}
+
+.animate-wiggle-on-hover:hover {
+  animation: wiggle 0.3s ease-in-out infinite;
+}

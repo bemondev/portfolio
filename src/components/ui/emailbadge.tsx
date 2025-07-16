@@ -2,9 +2,10 @@ export default function EmailBadge() {
   return (
     <a
       href="mailto:bemondev@gmail.com"
+      className="text-foreground hover:scale-110 hover:text-chart-1 transition transform"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-foreground hover:scale-110 transition transform"
+      aria-label="Send an email to bemondev@gmail.com" 
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

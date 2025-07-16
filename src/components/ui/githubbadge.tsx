@@ -4,7 +4,8 @@ export default function GitHubBadge() {
       href="https://www.github.com/bemondev/"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-foreground hover:scale-110 transition transform"
+      className="text-foreground hover:scale-110 hover:text-chart-1 transition transform"
+      aria-label="Open Bernardo's GitHub profile"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

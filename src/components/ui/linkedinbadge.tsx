@@ -4,7 +4,8 @@ export default function LinkedInBadge() {
       href="https://www.linkedin.com/in/bernardo-montaña/"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-foreground hover:scale-110 transition transform"
+      aria-label="Open Bernardo's LinkedIn profile"
+      className="text-foreground hover:scale-110 hover:text-chart-1 transition transform"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

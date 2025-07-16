@@ -82,7 +82,7 @@ export default function AboutSection({ onBack }: Props) {
       </motion.div>
       <button
         onClick={handleScrollClick}
-        className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition md:mt-14 mt-0.5"
+        className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition md:mt-14 mt-0"
         aria-label={scrolledDown ? "Scroll to top" : "Scroll to bottom"}
       >
         {scrolledDown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
