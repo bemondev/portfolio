@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/ui/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import FaviconSwitcher from "@/components/favicon-switch";
+import FaviconSwitcher from "@/components/ui/favicon-switch";
 import { Lexend_Deca } from 'next/font/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const lexendDeca = Lexend_Deca({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'], // agregá los pesos que necesites
+  weight: ['300', '400', '500', '700'],
   display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: "Portfolio @bemondev",
-  description: "Portfolio web personal de @bemondev",
+  description: "Personal web portfolio of @bemondev",
 };
 
 export default function RootLayout({

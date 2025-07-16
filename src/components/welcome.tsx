@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import RotatingText from "./welcometext";
+import RotatingText from "./ui/welcometext";
 
 type Props = {
   onContinue: () => void;
@@ -31,7 +31,7 @@ export default function Welcome({ onContinue }: Props) {
           transition={{ duration: 1 }}
         >
           I&rsquo;m{' '}
-            <RotatingText />
+          <RotatingText />
         </motion.h1>
       </div>
       <button

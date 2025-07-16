@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import LinkedInBadge from "./linkedinbadge"
-import GitHubBadge from "./githubbadge"
-import EmailBadge from "./emailbadge"
+import LinkedInBadge from "./ui/linkedinbadge"
+import GitHubBadge from "./ui/githubbadge"
+import EmailBadge from "./ui/emailbadge"
 
 type Props = {
   onBack: () => void;

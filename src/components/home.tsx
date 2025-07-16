@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Welcome from "@/components/welcome"
-import Menu from "@/components/circularmenu"
+import Menu from "@/components/ui/circularmenu"
 import AboutSection from "@/components/aboutme"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
@@ -24,7 +24,7 @@ export default function HomeClient() {
       about: { menu: "right" },
       projects: { menu: "left" },
       contact: { menu: "up" },
-      welcome: { menu: "down"},
+      welcome: { menu: "down" },
     }
     return directions[from]?.[to] || "down"
   }
