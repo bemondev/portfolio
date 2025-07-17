@@ -43,14 +43,14 @@ export default function AboutSection({ onBack }: Props) {
     >
       {/* Foto de perfil */}
       <motion.img
-        src="/pfp.webp"
+        src="/pfp-bm.png"
         alt="Portrait of Bernardo"
         loading="lazy"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="w-50 h-50 rounded-full object-cover border-foreground border-2"
+        className="w-50 h-50 rounded-full object-cover border-foreground bg-chart-1 border-2"
       />
 
       {/* Contenedor del texto */}

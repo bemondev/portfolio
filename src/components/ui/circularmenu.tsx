@@ -130,7 +130,7 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
+              className={`px-2 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
               onClick={() => onSelect(item.target)}
             >
               {item.label}
