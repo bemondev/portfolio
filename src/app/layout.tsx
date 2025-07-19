@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "devicon/devicon.min.css";
 import Header from "@/components/ui/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import FaviconSwitcher from "@/components/ui/favicon-switch";
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning className={lexendDeca.className}>
-        <head />
+        <head/>
         <body>
           <FaviconSwitcher />
           <ThemeProvider

@@ -24,10 +24,10 @@ const desktopItems: NavItem[] = [
 ]
 
 const mobileItems: NavItem[] = [
-  { label: 'home', x: 0, y: -120, target: 'welcome' },
-  { label: 'about', x: -150, y: 0, target: 'about' },
-  { label: 'projects', x: 150, y: 0, target: 'projects' },
-  { label: 'contact', x: 0, y: 120, target: 'contact' },
+  { label: 'home', x: 0, y: -110, target: 'welcome' },
+  { label: 'about', x: -125, y: 0, target: 'about' },
+  { label: 'projects', x: 130, y: 0, target: 'projects' },
+  { label: 'contact', x: 0, y: 110, target: 'contact' },
 ]
 
 const getEntryPosition = (from: string | null) => {
@@ -96,12 +96,12 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
         {/* Círculo grande */}
         <div
           aria-hidden="true"
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full ${isMobile ? 'w-40 h-40' : 'w-55 h-55'} flex items-center justify-center`}>
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-3 border-card-foreground rounded-full ${isMobile ? 'w-38 h-38' : 'w-55 h-55'} flex items-center justify-center`}>
           {/* Centro animado */}
           <motion.div
             style={{ x: iconX, y: iconY }}
             aria-hidden="true"
-            className={isMobile ? 'w-16 h-16 relative' : 'w-24 h-24 relative'}
+            className={isMobile ? 'w-14 h-14 relative' : 'w-24 h-24 relative'}
           >
             {/* Rombo */}
             <div
@@ -130,7 +130,7 @@ export default function Menu({ currentSection, prevSection, onSelect }: MenuProp
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-2 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
+              className={`px-1 py-2 rounded-md  text-foreground ${isMobile ? 'text-xl' : 'text-2xl'} transition-colors duration-200 hover:bg-foreground/10 cursor-pointer`}
               onClick={() => onSelect(item.target)}
             >
               {item.label}

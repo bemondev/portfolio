@@ -4,11 +4,11 @@ import { useEffect, useState } from "react"
 
 const phrases = [
   " Bernardo.",
-  " a developer.",
+  " a dev.",
+  " a tester.",
   " a designer.",
   " a creator.",
   " a student.",
-  " a tester.",
   " @bemondev.",
 ]
 
