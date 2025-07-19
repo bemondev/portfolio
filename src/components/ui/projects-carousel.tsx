@@ -17,7 +17,7 @@ export function ProjectsCarousel() {
                       My web portfolio
                     </h3>
                     <p className="font-normal text-left text-foreground py-3">
-                      This portfolio it's my most recent project, I enjoyed making this  much! Used: Next.JS, TailwindCSS, shadcnui and ESLint
+                      This portfolio it&rsquo;s my most recent project, I enjoyed making this  much! Used: Next.JS, TailwindCSS, shadcnui and ESLint
                     </p>
                   </div>
                   {/* ICONOS */}
@@ -124,7 +124,7 @@ export function ProjectsCarousel() {
                       Simple CRUD
                     </h3>
                     <p className="font-normal text-left text-foreground py-3">
-                      Made this simple web app using vanilla HTML, JS, CSS. It's a simple events listing with CRUD operations.
+                      Made this simple web app using vanilla HTML, JS, CSS. It&rsquo;s a simple events listing with CRUD operations.
                     </p>
                   </div>
                   {/* ICONOS */}

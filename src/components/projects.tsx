@@ -1,12 +1,4 @@
 import { motion } from "framer-motion"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Card, CardContent } from "./ui/card";
 import { ProjectsCarousel } from "./ui/projects-carousel";
 
 type Props = {
