@@ -112,7 +112,7 @@ export function ProjectsCarousel() {
                   {project.icons.map((icon, i) => (
                     <div key={i} className="relative group">
                       <i className={`${icon.class} text-4xl text-foreground cursor-pointer`} />
-                      <div className="absolute z-10 bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col items-center bg-background/80 p-3 rounded-xl border border-1 shadow-lg transition-all w-32">
+                      <div className="absolute z-10 bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col items-center bg-background/80 p-3 rounded-xl border-1 shadow-lg transition-all w-32">
                         <p className="text-sm font-semibold text-foreground">{icon.label}</p>
                       </div>
                     </div>
