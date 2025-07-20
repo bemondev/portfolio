@@ -19,7 +19,7 @@ export default function Projects({ onBack }: Props) {
       <ProjectsCarousel/>
       <button
         onClick={onBack}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 px-6 py-2 text-sm sm:text-lg border border-foreground rounded hover:bg-foreground hover:text-background transition z-50 backdrop-blur"
+        className="fixed bottom-4 md:bottom-12 left-1/2 -translate-x-1/2 px-6 py-2 text-sm sm:text-lg border border-foreground rounded hover:bg-foreground hover:text-background transition z-50 backdrop-blur"
       >
         Go to Menu ←
       </button>

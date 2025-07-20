@@ -39,7 +39,7 @@ export default function AboutSection({ onBack }: Props) {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -1000, opacity: 0 }}
       transition={{ duration: 0.6, ease: "anticipate" }}
-      className="min-h-screen flex flex-col md:flex-row justify-center items-center gap-8 px-4 py-16"
+      className="min-h-screen flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 px-4 py-16"
     >
       {/* Foto de perfil */}
       <motion.img
@@ -62,7 +62,6 @@ export default function AboutSection({ onBack }: Props) {
         className="relative max-w-xl text-foreground"
       >
         <h2 id="about-title" className="text-4xl font-normal mb-4 text-center md:text-left">About me</h2>
-
         <div
           ref={scrollRef}
           className="max-h-[150px] overflow-y-scroll scroll-smooth scrollbar-thin scrollbar-thumb-chart-1 scrollbar-track-background transition-opacity duration-300 pr-2"
@@ -71,26 +70,23 @@ export default function AboutSection({ onBack }: Props) {
             Hello! :) My name is Bernardo Montaña. I&rsquo;m an IT student based in Uruguay, currently pursuing a
             Bachelor&rsquo;s Degree in IT at UTEC. I&rsquo;ve explored development, testing, databases, design, and cloud computing.
           </p>
-
           <p className="mt-4 text-lg max-w-xl leading-relaxed sm:leading-loose text-balance text-left md:text-left">
             I have formal experience as a QA Tester and a deep interest in the intersection of technology, design, and
             user experience. I&rsquo;m passionate about learning, creating digital experiences, and — of course — I love cats
             and video games.
           </p>
         </div>
-
       </motion.div>
       <button
         onClick={handleScrollClick}
-        className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition md:mt-14 mt-0"
+        className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition mt-0 md:mt-14"
         aria-label={scrolledDown ? "Scroll to top" : "Scroll to bottom"}
       >
         {scrolledDown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
       </button>
-      {/* Botón de regreso */}
       <button
         onClick={onBack}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 px-6 py-2 text-sm sm:text-lg border border-foreground rounded hover:bg-foreground hover:text-background transition z-50 backdrop-blur"
+        className="fixed bottom-4 md:bottom-12 left-1/2 -translate-x-1/2 px-6 py-2 text-sm sm:text-lg border border-foreground rounded hover:bg-foreground hover:text-background transition z-50 backdrop-blur"
       >
         Go to Menu →
       </button>
