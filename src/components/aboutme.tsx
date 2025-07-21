@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
+import Image from "next/image"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 type Props = {
@@ -42,16 +43,22 @@ export default function AboutSection({ onBack }: Props) {
       className="min-h-screen flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 px-4 py-16"
     >
       {/* Foto de perfil */}
-      <motion.img
-        src="/pfp-bm.png"
-        alt="Portrait of Bernardo"
-        loading="lazy"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="w-50 h-50 rounded-full object-cover border-foreground bg-chart-1 border-2"
-      />
+        className="w-[200px] h-[200px] relative rounded-full overflow-hidden border-2 border-foreground bg-chart-1"
+      >
+        <Image
+          src="/pfp-bm.png"
+          alt="Portrait of Bernardo"
+          fill
+          quality={100}
+          className="object-cover"
+          loading="lazy"
+        />
+      </motion.div>
 
       {/* Contenedor del texto */}
       <motion.div
@@ -77,6 +84,7 @@ export default function AboutSection({ onBack }: Props) {
           </p>
         </div>
       </motion.div>
+
       <button
         onClick={handleScrollClick}
         className="bg-background border border-foreground rounded-full p-2 hover:bg-foreground hover:text-background transition mt-0 md:mt-14"
@@ -84,6 +92,7 @@ export default function AboutSection({ onBack }: Props) {
       >
         {scrolledDown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
       </button>
+
       <button
         onClick={onBack}
         className="fixed bottom-4 md:bottom-12 left-1/2 -translate-x-1/2 px-6 py-2 text-sm sm:text-lg border border-foreground rounded hover:bg-foreground hover:text-background transition z-50 backdrop-blur"
