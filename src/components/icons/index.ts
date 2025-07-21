@@ -1,0 +1,12 @@
+export { default as IconNextjs } from "./iconNext";
+export { default as IconTailwind } from "./iconTailwind";
+export { default as IconFramer } from "./iconFramer";
+export { default as IconEslint } from "./iconESLint";
+export { default as IconTypescript } from "./iconTypescript";
+export { default as IconAndroidStudio } from "./iconAS";
+export { default as IconJava } from "./iconJava";
+export { default as IconKotlin } from "./iconKotlin";
+export { default as IconSql } from "./iconSQLDev";
+export { default as IconJavascript } from "./iconJS";
+export { default as IconHTML5 } from "./iconHTML";
+export { default as IconCSS3 } from "./iconCSS3";
