@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     siteName: "@bemondev | Portfolio",
     images: [
       {
-        url: "https://www.bemon.dev/preview.png",
+        url: "https://www.bemon.dev/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Preview de Bemondev Portfolio", 
       },
     ],
-    locale: "en",
+    locale: "en_US",
     type: "website", 
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     creator: "@bemondev",
     title: "@bemondev | Portfolio",
     description: "Personal portfolio of Bernardo Montaña. Showcasing my projects, skills and development style",
-    images: ["https://www.bemon.dev/preview.png"],
+    images: ["https://www.bemon.dev/opengraph-image.jpg"],
   },
 };
 
